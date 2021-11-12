@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form viewer | by Adalab</title>
+</head>
+<body>
+  <header>
+    <h1>Form viewer</h1>
+  </header>
+  <body>
+    <p>Datos del formulario enviados con el método <%= method %></p>
+    <h2>Parámetros query</h2>
+    <% Object.keys(queryParams).forEach( paramName => { %>
+      <%= paramName %>: <%= queryParams[paramName] %>
+    <% }) %>
+    <h2>Parámetros body</h2>
+    <% Object.keys(bodyParams).forEach( paramName => { %>
+      <%= paramName %>: <%= queryParams[paramName] %>
+    <% }) %>
+  </body>
+</body>
+</html>

@@ -20,7 +20,21 @@ server.listen(serverPort, () => {
 });
 
 // Endpoints
-server.get("/", (req, res) => {
+server.get("/", showParams);
+server.post("/", showParams);
+server.put("/", showParams);
+server.delete("/", showParams);
+
+
+// Common functions
+function showParams(req, res) {
   console.log(req.query);
   console.log(req.body);
-});
+  console.log(req.method);
+
+  res.render('showParams', {
+    method: req.method,
+    queryParams: req.query,
+    bodyParams: req.body
+  })
+}

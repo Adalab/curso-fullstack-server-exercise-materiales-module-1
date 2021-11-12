@@ -4,22 +4,49 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://beta.adalab.es/resources/stylesheets/all.css">
   <title>Form viewer | by Adalab</title>
 </head>
-<body>
+<body class="page">
   <header>
-    <h1>Form viewer</h1>
+    <h1 class="title--big">Form viewer</h1>
   </header>
-  <body>
-    <p>Datos del formulario enviados con el método <%= method %></p>
-    <h2>Parámetros query</h2>
-    <% Object.keys(queryParams).forEach( paramName => { %>
-      <%= paramName %>: <%= queryParams[paramName] %>
-    <% }) %>
-    <h2>Parámetros body</h2>
-    <% Object.keys(bodyParams).forEach( paramName => { %>
-      <%= paramName %>: <%= queryParams[paramName] %>
-    <% }) %>
-  </body>
+  <main>
+    <p class="text text-secondary">Datos del formulario enviados con el método <%= method %></p>
+    
+    <section class="mt-1">
+      <h2 class="title--medium">Parámetros query</h2>
+      <% if( Object.keys(queryParams).length === 0 ) { %>
+        <p class="text--warning ml-1">No hay parámetros query</p>
+      <% } %>
+      <dl class="ml-1">
+        <% Object.keys(queryParams).forEach( paramName => { %>
+          <div class="col2">
+            <div class="col2 border--medium">
+              <dt class="display-inline-block title--small"><%= paramName %></dt>:
+              <dd class="display-inline-block text--code"><%= queryParams[paramName] %></dd>
+            </div>
+          </div>
+        <% }) %>
+      </dl>
+    </section>
+
+    <section class="mt-1">
+      <h2 class="title--medium">Parámetros body</h2>
+      <% if( Object.keys(bodyParams).length === 0 ) { %>
+        <p class="text--warning ml-1">No hay parámetros body</p>
+      <% } %>
+      <dl class="ml-1">
+        <% Object.keys(bodyParams).forEach( paramName => { %>
+          <div class="col2">
+            <div class="col2 border--medium">
+              <dt class="display-inline-block title--small"><%= paramName %></dt>:
+              <dd class="display-inline-block text--code"><%= bodyParams[paramName] %></dd>
+            </div>
+          </div>
+        <% }) %>
+      </dl>
+    </section>
+    </main>
 </body>
 </html>

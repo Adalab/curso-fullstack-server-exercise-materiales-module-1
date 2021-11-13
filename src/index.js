@@ -2,8 +2,8 @@
 // Fichero src/index.js
 
 // Importamos los dos módulos de NPM necesarios para trabajar
-const express = require("express");
-const cors = require("cors");
+const express = require('express');
+const cors = require('cors');
 
 // Creamos el servidor
 const server = express();
@@ -21,22 +21,22 @@ server.listen(serverPort, () => {
 });
 
 // Endpoints
-server.get("/", showParams);
-server.post("/", showParams);
-server.put("/", showParams);
-server.delete("/", showParams);
+server.get('/', showParams);
+server.post('/', showParams);
+server.put('/', showParams);
+server.delete('/', showParams);
 
 
 // Common functions
 function showParams(req, res) {
   console.log(req.headers);
 
-  let dataOrigin = req.headers["content-type"];
-  if( dataOrigin === "application/x-www-form-urlencoded" ) {
-    dataOrigin = "Formulario web";
+  let dataOrigin = req.headers['content-type'];
+  if( dataOrigin === 'application/x-www-form-urlencoded' ) {
+    dataOrigin = 'Formulario web';
   }
   else if( dataOrigin === 'application/json' ) {
-    dataOrigin = "Fetch que envía datos json";
+    dataOrigin = 'Fetch que envía datos json';
   }
 
   res.render('showParams', {

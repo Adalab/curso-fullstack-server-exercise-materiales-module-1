@@ -29,8 +29,18 @@ server.delete('/', showParams);
 
 // Common functions
 function showParams(req, res) {
+  let dataOrigin = req.headers['content-type'];
+  if( dataOrigin === 'application/x-www-form-urlencoded' ) {
+    dataOrigin = 'Formulario web';
+  }
+  else if( dataOrigin === 'application/json' ) {
+    dataOrigin = 'Fetch que envía datos json';
+  }
+
   res.render('showParams', {
     method: req.method,
+    dataOrigin: dataOrigin,
+    referer: req.headers['referer'],
     queryParams: req.query,
     bodyParams: req.body
   });

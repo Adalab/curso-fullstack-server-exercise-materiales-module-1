@@ -2,8 +2,8 @@
 // Fichero src/index.js
 
 // Importamos los dos módulos de NPM necesarios para trabajar
-const express = require("express");
-const cors = require("cors");
+const express = require('express');
+const cors = require('cors');
 
 // Creamos el servidor
 const server = express();
@@ -21,10 +21,10 @@ server.listen(serverPort, () => {
 });
 
 // Endpoints
-server.get("/", showParams);
-server.post("/", showParams);
-server.put("/", showParams);
-server.delete("/", showParams);
+server.get('/', showParams);
+server.post('/', showParams);
+server.put('/', showParams);
+server.delete('/', showParams);
 
 
 // Common functions

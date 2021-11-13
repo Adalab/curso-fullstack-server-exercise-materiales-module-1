@@ -35,7 +35,9 @@
       <h2 class="title--medium">Parámetros body</h2>
       <% if( Object.keys(bodyParams).length === 0 ) { %>
         <p class="text--warning ml-1">No hay parámetros body</p>
-      <% } %>
+        <% } else { %>
+          <p class="ml-1">Origen de los parámetros: <%= dataOrigin.toLocaleLowerCase() %> (desde <span class="text--code"><%= referer %></span>)</p>
+        <% } %>
       <dl class="ml-1">
         <% Object.keys(bodyParams).forEach( paramName => { %>
           <div class="col2">

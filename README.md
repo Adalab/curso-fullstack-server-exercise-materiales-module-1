@@ -2,6 +2,10 @@
 
 Web server which accepts data from <forms> and fetch() and displays a html page with the body and/or query paremeters and its values.
 
+## Deprecated
+
+This project was integrated into [pw-server-apis](https://github.com/Adalab/pw-server-apis). This repo will not be maintained longer.
+
 ## Install
   
 Steps:
